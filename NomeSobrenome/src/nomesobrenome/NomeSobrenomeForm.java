@@ -42,6 +42,10 @@ public class NomeSobrenomeForm extends javax.swing.JFrame {
         jTextFieldSobreNome = new javax.swing.JTextField();
         jButtonOK = new javax.swing.JButton();
         jButtonSair = new javax.swing.JButton();
+        jLabelIdade = new javax.swing.JLabel();
+        jTextFieldIdade = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jLabelResultado = new java.awt.Label();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,6 +69,34 @@ public class NomeSobrenomeForm extends javax.swing.JFrame {
             }
         });
 
+        jLabelIdade.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelIdade.setText("Digite aqui sua idade:");
+
+        jTextFieldIdade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldIdadeActionPerformed(evt);
+            }
+        });
+
+        jLabelResultado.setText("Resultado:");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jLabelResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -73,17 +105,22 @@ public class NomeSobrenomeForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldNome)
+                    .addComponent(jTextFieldSobreNome)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonSair)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonOK))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelSobreNome, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 170, Short.MAX_VALUE))
-                    .addComponent(jTextFieldSobreNome)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButtonSair)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonOK)))
+                            .addComponent(jLabelSobreNome, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -93,15 +130,24 @@ public class NomeSobrenomeForm extends javax.swing.JFrame {
                 .addComponent(jLabelNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelSobreNome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(4, 4, 4)
                 .addComponent(jTextFieldSobreNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonOK)
-                    .addComponent(jButtonSair))
-                .addContainerGap(124, Short.MAX_VALUE))
+                    .addComponent(jLabelIdade)
+                    .addComponent(jTextFieldIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonOK)
+                            .addComponent(jButtonSair)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         pack();
@@ -109,6 +155,8 @@ public class NomeSobrenomeForm extends javax.swing.JFrame {
 
     private void jButtonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOKActionPerformed
         // TODO add your handling code here:
+        Pessoa p = new Pessoa();
+        
         if(jTextFieldNome.getText().isEmpty() || jTextFieldSobreNome.getText().isEmpty()){
             
             String msg = "Usuário deve preencher o Nome e Sobrenome";
@@ -120,16 +168,23 @@ public class NomeSobrenomeForm extends javax.swing.JFrame {
             String msgtitulo = "Welcome";
             
             JOptionPane.showMessageDialog(rootPane, msg, msgtitulo,JOptionPane.INFORMATION_MESSAGE);
-            v.add(jTextFieldNome.getText());
-            al.add(jTextFieldNome.getText());
+            
+            p.setNome(jTextFieldNome.getText());
+            p.setSobrenome(jTextFieldSobreNome.getText());
+            p.setIdade(Integer.parseInt(jTextFieldIdade.getText()));
+
+            v.add(p);
+            al.add(p);
             
         }
         
-        jLabelNome.setForeground(Color.blue);
-        jTextFieldNome.setBackground(Color.red);
+        //jLabelNome.setForeground(Color.blue);
+        //jTextFieldNome.setBackground(Color.red);
+        
+       // jLabelResultado.setText(convert String.parse(v));
         
         System.out.println(v);
-        System.out.println(al);
+        //System.out.println(al);
         
     }//GEN-LAST:event_jButtonOKActionPerformed
 
@@ -138,6 +193,10 @@ public class NomeSobrenomeForm extends javax.swing.JFrame {
         System.exit(0);
      //  nomeSobrenome.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }//GEN-LAST:event_jButtonSairActionPerformed
+
+    private void jTextFieldIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldIdadeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,8 +236,12 @@ public class NomeSobrenomeForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonOK;
     private javax.swing.JButton jButtonSair;
+    private javax.swing.JLabel jLabelIdade;
     private javax.swing.JLabel jLabelNome;
+    private java.awt.Label jLabelResultado;
     private javax.swing.JLabel jLabelSobreNome;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextFieldIdade;
     private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldSobreNome;
     // End of variables declaration//GEN-END:variables
