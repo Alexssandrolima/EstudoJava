@@ -6,8 +6,15 @@
 package nomesobrenome;
 
 import java.awt.Color;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,15 +23,22 @@ import javax.swing.JOptionPane;
  */
 public class NomeSobrenomeForm extends javax.swing.JFrame {
 
-    Vector v = new Vector();
+    //Vector v = new Vector();          // para criar um vetor
     
-    ArrayList al = new ArrayList();
-    
-    /**
+    //ArrayList al = new ArrayList();   // para criar uma lista
+    BufferedWriter bf;                  // estanciando a classe que gerencia na memoria.
+     /**
      * Creates new form NomeSobrenomeForm
      */
     public NomeSobrenomeForm() {
         initComponents();
+        
+        try {
+            // como tambem pode ficar assim
+            bf = new BufferedWriter(new FileWriter(new File("arquivo.txt")));
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+        }
     }
 
     /**
@@ -173,8 +187,19 @@ public class NomeSobrenomeForm extends javax.swing.JFrame {
             p.setSobrenome(jTextFieldSobreNome.getText());
             p.setIdade(Integer.parseInt(jTextFieldIdade.getText()));
 
-            v.add(p);
-            al.add(p);
+            try {
+               
+                bf.write(p.toString());
+                bf.newLine();
+                bf.flush();
+                //bf.close();
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+            }
+
+                //v.add(p);                 //gravar no vetor.
+                //al.add(p);                // gravar na lista.
+
             
         }
         
@@ -183,8 +208,8 @@ public class NomeSobrenomeForm extends javax.swing.JFrame {
         
        // jLabelResultado.setText(convert String.parse(v));
         
-        System.out.println(v);
-        //System.out.println(al);
+        //System.out.println(v);                //mostrar o que foi gravado.
+        //System.out.println(al);               //mostrar o que foi gravado.
         
     }//GEN-LAST:event_jButtonOKActionPerformed
 
@@ -245,4 +270,6 @@ public class NomeSobrenomeForm extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldSobreNome;
     // End of variables declaration//GEN-END:variables
+
+
 }
